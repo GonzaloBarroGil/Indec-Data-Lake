@@ -1,0 +1,61 @@
+DER MELI
+--------
+
+Análisis semántico:
+* Se identifican:
+	- Entidad Vendedor, con su ciudad
+	- Entidad Ítem, con su categoría
+	- Entidad de relación Producto, con su Ítem y con su Vendedor
+
+Estructura gramatical:
+* No se transforman los nombres de columna originales
+* No se transforma ningún dato
+* Se respeta la atomicidad de la fila original
+* Se agregan identificadores como clave primaria
+* Se agregan claves foráneas
+
+
+Ciudad_Vendedor
+-------------
+PK.Id
+Ciudad_Vendedor
+Cp_Vendedor
+Provincia_Vendedor
+
+			Vendedor
+			-------------
+			PK.Id
+			FK.Id_Ciudad
+			Tipo_Vendedor
+			Documento_Vendedor
+			Tipo_Doc_Vendedor
+
+Categorías
+-------------
+PK.Id
+Categoria_Nivel_1
+Categoria_Nivel_2
+Categoria_Nivel_3
+
+			Ítem
+			-------------
+			PK.Id
+			FK.Id_Categoría
+			Número_De_Item
+			Titulo
+			Url_Item
+			Ean
+			Modelo
+			Marca
+			Ite_Base_Price
+
+						Productos
+						-------------
+						PK.Id
+						FK.Id_Vendedor
+						FK.Id_Item
+						Tipo_Combo
+						Condicion_Producto
+						Cantidad_Producto
+						Gmv
+
